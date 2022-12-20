@@ -8,7 +8,7 @@
 export default {
   name: "index",
   mounted() {
-    this.$router.push('/harf-okunus/ustun')
+    this.$router.push('/')
   }
 }
 </script>
