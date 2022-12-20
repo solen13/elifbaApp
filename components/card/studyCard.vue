@@ -63,7 +63,7 @@ export default {
 position: absolute;
 
   right: 0;
-  margin-right: 100px;
+  margin-right: 5px;
 }
 .head{
   display: flex;
