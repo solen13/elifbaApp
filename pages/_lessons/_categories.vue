@@ -22,7 +22,6 @@ export default {
   },
   mounted() {
     this.page= this.$route.params.categories
-    console.log(this.page)
   },
   computed:{
     getData(){

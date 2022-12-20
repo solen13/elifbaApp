@@ -8,7 +8,7 @@
 export default {
   name: "index",
   mounted() {
-    this.$router.push('/')
+    this.$router.push('/harfler/elifba')
   }
 }
 </script>

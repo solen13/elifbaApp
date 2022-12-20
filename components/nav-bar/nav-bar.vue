@@ -44,9 +44,14 @@ export default {
   mounted() {
     const lesson=this.$route.params.lessons
    const subCategory= apiRouter.find(el=>el.route===lesson)
-    console.log(subCategory)
-    this.subTitle=subCategory.subTitle
-    this.color=subCategory.color
+    if(subCategory){
+      this.subTitle=subCategory.subTitle
+      this.color=subCategory.color
+    }else{
+      this.color='pink'
+
+    }
+
 
   }
 }
