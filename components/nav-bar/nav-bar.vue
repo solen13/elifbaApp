@@ -47,6 +47,7 @@ export default {
     console.log(subCategory)
     this.subTitle=subCategory.subTitle
     this.color=subCategory.color
+
   }
 }
 </script>

@@ -69,6 +69,7 @@ const apiRouter=[
     ]
 
   },
+  /*
   {
     name:'Bazı durumlar',
     color: 'teal',
@@ -124,5 +125,7 @@ const apiRouter=[
     ]
 
   },
+
+   */
 ]
 export default apiRouter
