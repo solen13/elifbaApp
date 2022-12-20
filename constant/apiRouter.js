@@ -2,24 +2,26 @@ const apiRouter=[
   {
     name:'harfler',
     color:'red',
-    path:'/hafler',
+    route:'hafler',
+    path:'/harfler/elifba',
     subTitle:[
       {
         name:'Harfler',
-        path:'/hafler/elifba'
+        path:'/harfler/elifba'
       },
       {
         name:'Harflerin yazımı',
-        path: '/hafler/harfOkunus'
+        path: '/harfler/harfOkunus'
 
       }
     ]
 
   },
   {
-    name:'Haflarin okunuşları',
+    name:'Harflarin okunuşları',
     color:'pink',
-    path:'/harf-okunus',
+    route:'harf-okunus',
+    path:'/harf-okunus/ustun',
     subTitle: [
       {
         name:'Üstün',
@@ -71,27 +73,27 @@ const apiRouter=[
   {
     name:'Bazı durumlar',
     color: 'teal',
-    path:'/durumlar',
+    path:'/durumlar/medye',
     subTitle:[
       {
         name:'Elf Lam  Takısını Okunuşu',
-        path:'/durumlar/letters'
+        path:'/durumlar/medye'
       },
       {
         name:'Zamir ve Okunşu',
-        path:'/durumlar/letters'
+        path:'/durumlar/medye'
       },
       {
         name:'Med-Kasır kelimler',
-        path:'/durumlar/letters'
+        path:'/durumlar/medye'
       },
       {
         name:'Okunmayan Elif',
-        path:'/durumlar/letters'
+        path:'/durumlar/medye'
       },
       {
         name:'huruf-u Mukttaa',
-        path:'/durumlar/letters'
+        path:'/durumlar/medye'
       },
 
     ]
@@ -100,25 +102,26 @@ const apiRouter=[
   {
     name:'Tecvid',
     color: 'deep-orange',
-    path: '/tecvid',
+    path: '/tecvid/medye',
     subTitle: [
       {name:'Medler Kurallar',
-        path:'/durumlar/letters'
+        path:'/tecvid/medye'
       },
       {name:'Tenvin kurallar',
-        path:'/durumlar/letters'
+        path:'/tecvid/medye'
       },
       {name:'Sakin Mim Kurallar',
-        path:'/durumlar/letters'
+        path:'/tecvid/medye'
       },
       {name:'Diğer Konular',
-        path:'/durumlar/letters'
+        path:'/tecvid/medye'
       },
       {name:'Bazı İşaetler',
-        path:'/durumlar/letters'
+        path:'/tecvid/medye'
       },
       {name:'Secavend işaretler',
-        path:'/durumlar/letters'}
+        path:'/tecvid/medye'
+      }
     ]
 
   },

@@ -1,6 +1,5 @@
 <template>
-    <v-card width="100%" class="nav-content">
-       <h2 class="pa-2 text-center ">Elifba öğrenme </h2>
+<v-card  :class="color">
 
        <div class="btn-group">
           <div class="btn-content">
@@ -18,7 +17,7 @@
           </div>
        </div>
 
-    </v-card>
+</v-card>
 </template>
 
 <script>
@@ -27,7 +26,8 @@ export default {
   name: "nav-bar",
   data(){
     return{
-     subTitle:null
+     subTitle:null,
+      color:null
     }
   },
   computed:{
@@ -37,11 +37,16 @@ export default {
   },
   methods:{
     btnClikced(item){
-     let nav= document.querySelector('.nav-content')
-      nav.classList.remove('red','pink','teal','deep-orange')
-      nav.classList.add(item.color)
+      this.color=item.color
       this.subTitle=item.subTitle
     },
+  },
+  mounted() {
+    const lesson=this.$route.params.lessons
+   const subCategory= apiRouter.find(el=>el.route===lesson)
+    console.log(subCategory)
+    this.subTitle=subCategory.subTitle
+    this.color=subCategory.color
   }
 }
 </script>
@@ -51,7 +56,8 @@ export default {
 background-color: grey !important;
 }
 .categori{
-  background-color: rgba(128, 128, 128, 0.7);
+  background-color: rgba(128, 128, 128, 0.29);
+  color: white;
 }
 .link{
   padding: 5px 8px;
@@ -60,24 +66,20 @@ background-color: grey !important;
   border-radius: 20px;
   text-decoration: none;
 }
-.nav-content{
-  background-color: blue;
-  position: relative;
-}
+
 .sub-categori{
   width: 100%;
   height: auto;
   display: flex;
   justify-content: space-around;
-  align-self: flex-end;
-  background-color: rgba(191, 201, 200, 0.35);
+  background-color: rgba(191, 201, 200, 0.22);
 }
 .sub-categori-content{
-  width: 600px;
+  width: 85%;
   gap: 5px;
   display: flex;
   flex-flow: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .btn-group{
@@ -85,6 +87,7 @@ background-color: grey !important;
   height: 50px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 .btn-content{
   display: flex;

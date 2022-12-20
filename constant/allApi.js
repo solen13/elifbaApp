@@ -7,10 +7,8 @@ const api={
         image: '/drawble/elifba-letters/elif',
         sound: '/raw/elifba/elif'
       }
-
   },
   'harfOkunus':{
-
     name:'ELİF-BA OKUNUŞ',
     dataSource:
       {
@@ -18,18 +16,15 @@ const api={
         image: '/drawble/spelling/bas',
         sound: '/raw/elifba/elif'
       }
-
   },
   'ustun':{
     name:'ÜSTÜN',
     bilgiKutusu:'/banner/ustun.png',
-
     dataSource: {
         length:30,
         image: '/drawble/ustun/ustun',
         sound: '/raw/ustun/ustun',
       },
-
   },
   'esre':{
     name:'ESRE',
