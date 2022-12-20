@@ -6,6 +6,10 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  mounted() {
+    this.$router.push('/harfler/elifba')
+
+  }
 }
 </script>

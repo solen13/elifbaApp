@@ -12,7 +12,6 @@ const apiRouter=[
       {
         name:'Harflerin yazımı',
         path: '/harfler/harfOkunus'
-
       }
     ]
 
