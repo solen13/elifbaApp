@@ -125,6 +125,17 @@ const api={
         sound: '/raw/medye/medye'
       }
 
-  }
+  },
+  'quiz':{
+    name:'game',
+    dataSource:
+      {
+        length:30,
+        image: '/drawble/medye/medye',
+        sound: '/raw/medye/medye'
+      }
+
+  },
+
 }
 export default api

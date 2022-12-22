@@ -3,15 +3,16 @@
 
        <div class="btn-group">
           <div class="btn-content">
-            <v-btn class="categori" active-class="active" text :to='item.path' v-for="item in listData" @click="btnClikced(item)">
+            <v-btn class="categori" active-class="active" text :to='item.path' v-for="(item,index) in listData" @click="btnClikced(item)" :key="index">
               {{ item.name}}
             </v-btn>
+
           </div>
        </div>
 
        <div class="sub-categori">
           <div class="sub-categori-content">
-              <v-btn active-class="active" :to="item.path" class="link"  text v-for="item in subTitle">
+              <v-btn active-class="active" :to="item.path" class="link"  text v-for="(item,index) in subTitle" :key="index">
                 {{item.name}}
               </v-btn>
           </div>

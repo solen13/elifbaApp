@@ -1,7 +1,7 @@
 <template>
   <div>
       <v-row style="display: flex; flex-direction:row-reverse">
-        <v-col cols="3" md="2"  v-for="item in data.dataSource.length">
+        <v-col cols="3" md="2"  v-for="(item,index) in data.dataSource.length" :key="index">
           <v-card  width="120" :class="`color${item}`"  height="80" @click="sound(data.dataSource.sound+`${item}.mp3`,item)">
             <v-img :src= "data.dataSource.image+`${item}.png`"   height="100%" width="100%" contain />
           </v-card>
@@ -32,25 +32,12 @@ export default {
       let bet = new Audio(soun)
       bet.pause()
       bet.play();
-          this.count++
-          let name=this.data.name
-          const qq=document.querySelector('.color'+item)
-          qq.classList.add('active')
-         this.ar.push(item)
-        localStorage.setItem(this.data.name,JSON.stringify(this.ar))
-      const data =localStorage.getItem('ÖTRE')
+      const qq=document.querySelector('.color'+item)
+      qq.classList.add('active')
+      this.ar.push(item)
 
     }
   },
-  mounted(){
-
-
-
-
-
-
-
-  }
 }
 </script>
 

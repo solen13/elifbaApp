@@ -69,6 +69,21 @@ const apiRouter=[
     ]
 
   },
+
+
+  {
+    name:'oyun',
+    color:'blue',
+    route:'game',
+    path:'/game/quiz',
+    subTitle: [
+      {
+        name:'quiz',
+        path:'/game/quiz'
+      }
+      ]
+
+  }
   /*
   {
     name:'Bazı durumlar',
