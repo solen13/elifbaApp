@@ -13,7 +13,7 @@
 
 
   <v-card v-if="isBox && data.bilgiKutusu"  width="100%" height="100%" class="d-flex justify-center align-center cards ">
-    <v-btn style="z-index: 99" @click="exit" class="exit">Cık</v-btn>
+    <v-btn style="z-index: 99" fab @click="exit" class="exit"><v-icon>mdi-close</v-icon></v-btn>
     <v-img :src="data.bilgiKutusu" contain></v-img>
   </v-card>
 

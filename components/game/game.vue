@@ -1,7 +1,7 @@
 <template>
-  <div class="d-flex justify-center"  style="width: 100% ;height: 83vh;position: relative" >
+  <div class="d-flex justify-center"  style="width: 100% ;height: 86vh;position: relative" >
 
-    <div v-if="isWindow" style="width: 80%" >
+    <div v-if="isWindow" style="width: 80%" class="mt-5" >
 
     <div  class="d-flex justify-space-around">
       <span>puan:{{count}}</span>
@@ -36,8 +36,8 @@
     <div  v-else  class="pa-2 arka">
       <h3 class="white pa-4 rounded">Quiz Oyununa Hoşgeldiniz</h3>
     <v-btn class="mt-2" @click="start">Başla</v-btn>
-
     </div>
+
 
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
       highScore:localStorage.getItem('highScore'),
       scoreColor:false,
       isWindow:false,
-      isOver:false
+      isOver:false,
     }
   },
   props:{
@@ -121,7 +121,8 @@ export default {
     start(){
 
       this.isWindow=true
-      setTimeout( ()=>{
+
+    setTimeout( ()=>{
         let sound=this.data[this.randomNumbers].sound
         let bets = new Audio(sound)
         bets.pause()
@@ -137,6 +138,8 @@ export default {
         }
       },1000)
 
+
+
     },
     trying(){
       this.isOver=false
@@ -144,18 +147,12 @@ export default {
     },
     exits(){
      this.$router.push('/')
-    }
+    },
+
   },
 
-mounted() {
 
 
-},
-computed:{
-    score(){
-    return  localStorage.getItem('highScore')
-    }
-}
 
 }
 </script>
@@ -188,8 +185,9 @@ computed:{
   flex-flow: column;
 }
 .game-over{
-  width: 80%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
+  background: red;
   background-image: url("https://cdn.create.vista.com/api/media/small/472078824/stock-photo-game-word-red-background");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -200,6 +198,7 @@ computed:{
   align-items: center;
   flex-flow: column;
   border-radius: 5px;
+  left: 0;
 
 }
 </style>

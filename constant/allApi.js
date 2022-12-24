@@ -1,6 +1,7 @@
 const api={
   'elifba':{
     name:'ELİF-BA',
+    bilgiKutusu:'/banner/elifba.png',
     dataSource:
       {
         length:29,
@@ -10,6 +11,7 @@ const api={
   },
   'harfOkunus':{
     name:'ELİF-BA OKUNUŞ',
+    bilgiKutusu:'/banner/elifbayazlis.png',
     dataSource:
       {
         length:28,
@@ -28,6 +30,7 @@ const api={
   },
   'esre':{
     name:'ESRE',
+    bilgiKutusu:'/banner/esre.png',
     dataSource:
       {
         length:30,
@@ -38,6 +41,7 @@ const api={
   },
   'otre':{
     name:'ÖTRE',
+    bilgiKutusu:'/banner/otre.png',
     dataSource:
       {
         length:30,
@@ -48,6 +52,7 @@ const api={
   },
   'cezim':{
     name:'CEZİM',
+    bilgiKutusu:'/banner/cezim.png',
     dataSource:
       {
         length:15,
@@ -58,6 +63,7 @@ const api={
   },
   'sedde':{
     name:'ŞEDDE',
+    bilgiKutusu:'/banner/sedde.png',
     dataSource:
       {
         length:15,
@@ -68,6 +74,7 @@ const api={
   },
   'ikiustun':{
     name:'İKİ ÜSTÜN',
+    bilgiKutusu:'/banner/ikiustun.png',
     dataSource:
       {
         length:30,
@@ -78,6 +85,7 @@ const api={
   },
   'ikiesre':{
     name:'İKİ ESRE',
+    bilgiKutusu:'/banner/ikiesre.png',
     dataSource:
       {
         length:30,
@@ -88,6 +96,7 @@ const api={
   },
   'ikiotre':{
     name:'İKİ ÖTRE',
+    bilgiKutusu:'/banner/ikiotre.png',
     dataSource:
       {
         length:30,
@@ -98,6 +107,7 @@ const api={
   },
   'medelif':{
     name:'MED-ELİF',
+    bilgiKutusu:'/banner/medelif.png',
     dataSource:
       {
         length:30,
@@ -108,6 +118,7 @@ const api={
   },
   'medvav':{
     name:'MED-VAV',
+    bilgiKutusu:'/banner/medvav.png',
     dataSource:
       {
         length:30,
@@ -118,6 +129,7 @@ const api={
   },
   'medye':{
     name:'MED-YE',
+    bilgiKutusu:'/banner/medye.png',
     dataSource:
       {
         length:30,

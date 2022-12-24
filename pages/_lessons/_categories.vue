@@ -7,7 +7,7 @@
 
   </template>
 
-  <div v-else class="d-flex justify-center align-center mt-5" >
+  <div v-else class="d-flex justify-center align-center " >
 
    <game :data="getGameApi" />
 
