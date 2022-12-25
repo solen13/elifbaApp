@@ -3,48 +3,54 @@
 
     <div v-if="isWindow" style="width: 80%" class="mt-5" >
 
-    <div  class="d-flex justify-space-around">
-      <span>puan:{{count}}</span>
+      <div  class="d-flex justify-space-around">
 
-      <div>
-        <h4>En yükesk puan</h4>
-        <p v-if="scoreColor" class="red pa-1 rounded text-center white--text">{{count}}</p>
-        <p v-else class="blue pa-1 rounded text-center white--text">{{highScore}} </p>
+        <span>puan:{{count}}</span>
+
+        <div>
+          <h4>En yükesk puan</h4>
+          <p v-if="scoreColor" class="red pa-1 rounded text-center white--text">{{count}}</p>
+          <p v-else class="blue pa-1 rounded text-center white--text">{{highScore}} </p>
+        </div>
+
+        <p>süre:{{time}}</p>
+
       </div>
 
-      <p>süre:{{time}}</p>
-    </div>
+      <v-btn @click="sound(data[randoms[sec]])" text> dinle <v-icon class="ml-1">mdi-volume-high</v-icon></v-btn>
 
-    <v-btn @click="sound(data[randomNumbers])" text> dinle <v-icon class="ml-1">mdi-volume-high</v-icon></v-btn>
-    <v-row class="mt-4" >
-      <v-col  class="img " :class="`color${index}`" cols="6"  v-for="(item,index) in data[randomNumbers].questions" :key="index">
-        <v-img @click="question(item,index)" max-width="90%" height="100%" contain :src="item.image"></v-img>
-      </v-col>
-    </v-row>
+      <v-row class="mt-4" >
+        <v-col class="img " :class="`color${index}`" cols="6"
+                v-for="(item,index) in data[this.randoms[sec]].questions" :key="index">
 
-    <div v-if="isOver" class="game-over"  >
+          <v-img @click="question(item,index)" max-width="90%" height="100%" contain :src="item.image"></v-img>
 
-      <div class="mb-4">
-        <v-btn @click="trying">Tekrar oyna</v-btn>
-        <v-btn @click="exits">Ana Menu</v-btn>
+        </v-col>
+      </v-row>
+
+      <div v-if="isOver" class="game-over"  >
+        <div class="mb-4">
+          <v-btn @click="trying">Tekrar oyna</v-btn>
+          <v-btn @click="exits">Ana Menu</v-btn>
+        </div>
       </div>
-    </div>
 
 
-  </div>
+   </div>
 
     <div  v-else  class="pa-2 arka">
       <h3 class="white pa-4 rounded">Quiz Oyununa Hoşgeldiniz</h3>
-    <v-btn class="mt-2" @click="start">Başla</v-btn>
+      <v-btn class="mt-2" @click="start">Başla</v-btn>
     </div>
-
 
   </div>
 </template>
 
 <script>
+
 export default {
-  name: "game",
+
+name: "game",
   data(){
     return{
       count:0,
@@ -54,6 +60,8 @@ export default {
       scoreColor:false,
       isWindow:false,
       isOver:false,
+      randoms:[],
+      sec:0
     }
   },
   props:{
@@ -70,88 +78,113 @@ export default {
 
     },
     question(questions,index){
+        //cevap doğru ise
       if(questions.correct){
-
+         //doğru ses çalar
         let bet = new Audio('/sistemSound/dogru.wav')
         bet.pause()
         bet.play();
-        const tt=document.querySelector('.color'+index)
-        tt.classList.add('true')
+
+        //puan artar
         this.count+=10
 
-        const qq=document.querySelectorAll('.false')
-        qq.forEach(el=>{
+        //yeşil border eklenir
+        const greenBorerAdd=document.querySelector('.color'+index)
+        greenBorerAdd.classList.add('true')
+
+        const redBorderRemove=document.querySelectorAll('.false')
+        redBorderRemove.forEach(el=>{
           el.classList.remove('false')
         })
 
         setTimeout( ()=>{
-          this.randomNumbers= Math.floor(Math.random() * this.data.length)
-          tt.classList.remove('true')
+          greenBorerAdd.classList.remove('true')
         },300)
 
+         //yeni soruya geçilir
         setTimeout( ()=>{
-          let sound=this.data[this.randomNumbers].sound
+          if(this.data.length >this.sec){
+            this.sec++
+          }
+          let sound=this.data[this.randoms[this.sec]].sound
           let bets = new Audio(sound)
           bets.pause()
           bets.play();
         },500)
+
+         //local storge kayıt
         let highScore=localStorage.getItem('highScore')
+
+        //ilk defa kayıd yapılacaksa
         if(highScore ===null){
            localStorage.setItem('highScore',this.count)
-          console.log('ilk kkayıt')
         }
-
+      //kayıt varsa
         if(this.count>highScore){
           localStorage.setItem('highScore' ,this.count)
           this.scoreColor=true
         }
 
       }
+
+      // yanlış ise cevap
       else{
         let bet = new Audio('/sistemSound/yanlis1.mp3')
         bet.pause()
         bet.play();
-        const qq=document.querySelector('.color'+index)
-        qq.classList.add('false')
-
-
+        const redBorderAdd=document.querySelector('.color'+index)
+        redBorderAdd.classList.add('false')
       }
 
     },
+    //başlama
     start(){
-
+      //oyun ekraını açıyoz
       this.isWindow=true
 
-    setTimeout( ()=>{
-        let sound=this.data[this.randomNumbers].sound
+      //ilk sesi çalıyoz
+       setTimeout( ()=>{
+        let sound=this.data[this.randoms[this.sec]].sound
         let bets = new Audio(sound)
         bets.pause()
         bets.play();
       },300)
-      var txt;
+
+      //süre
       setInterval(()=>{
         if( this.time>0){
           this.time--
           if(this.time===0){
+            //süre bitiğinde isover çalışacak
              this.isOver=true
           }
         }
       },1000)
 
-
-
     },
+    //tekrar oyna
     trying(){
       this.isOver=false
       window.location.reload()
     },
+    //oyundan çık
     exits(){
      this.$router.push('/')
     },
-
   },
 
+  mounted() {
 
+  //rondom bir dizi üretiyoruz ve bunlar biribirinden farklı
+    while (this.randoms.length<this.data.length){
+      let number =Math.ceil(Math.random()*this.data.length)
+      let isNumber=this.randoms.find(el=>{
+        return el===number
+      })
+      isNumber ? '' :this.randoms.push(number)
+
+    }
+  }
 
 
 }
@@ -187,7 +220,6 @@ export default {
 .game-over{
   width: 100%;
   height: 100%;
-  background: red;
   background-image: url("https://cdn.create.vista.com/api/media/small/472078824/stock-photo-game-word-red-background");
   background-repeat: no-repeat;
   background-size: 100% 100%;
