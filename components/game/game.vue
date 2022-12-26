@@ -12,7 +12,6 @@
           <p v-if="scoreColor" class="red pa-1 rounded text-center white--text">{{count}}</p>
           <p v-else class="blue pa-1 rounded text-center white--text">{{highScore}} </p>
         </div>
-
         <p>süre:{{time}}</p>
 
       </div>

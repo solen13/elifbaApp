@@ -39,7 +39,28 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/pwa',
   ],
+  pwa:{
+
+    icon: {
+      fileName:'iconn.png',
+      sizes:[64, 120, 144, 152, 192, 384, 512]
+    },
+    meta:{
+      title:'app',
+      author:'Elifba'
+
+    },
+    manifest:{
+      name:'Elif-ba',
+      short_name:'elifba-ogren',
+      backgrond_color:'#0ba2aa',
+      theme_color:'#262761',
+      lang:'tr'
+
+    }
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
